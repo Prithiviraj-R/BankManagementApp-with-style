@@ -1,0 +1,113 @@
+@charset "UTF-8";
+body
+{
+	background-color:rgba(95,158,160,0.5);
+}
+label
+{
+	font-size:20px;
+	color:black;
+	opacity:.8;
+}
+input
+{
+	width:80%;
+	font-size:15px;
+	margin:5% auto;
+	margin-bottom:8%;
+	border:none;
+	outline:none;
+	background:transparent;
+	color:white;
+	border-bottom:2px solid black;
+	opacity:.8;
+}
+div.a
+{
+float:right;
+}
+tr:hover
+{
+	color:yellow;
+}
+table
+{
+  margin-top:5px;
+  margin-left:50px;
+  border: 1px solid black;
+  width:900px;
+}
+th,tr,td
+{
+border:1px solid black;
+color:black;
+font-size:large;	
+}
+form.new
+{
+	margin-left:30px;
+    width:1020px;
+    box-shadow:0 8px 32px 0 rgba(31,38,135,.37);
+	border-radius:30px;
+	background:rgba(255,255,255,0.03);
+	border-left:1px solid rgba(255,255,255,.4);
+	border-right:1px solid rgba(255,255,255,.4);
+	border-top:1px solid rgba(255,255,255,.4);
+	border-bottom:1px solid rgba(255,255,255,.4);
+	text-align:center;
+}
+form.operation
+{
+	margin-left:350px;
+    width:500px;
+    box-shadow:0 8px 32px 0 rgba(31,38,135,.37);
+	border-radius:30px;
+	background:rgba(255,255,255,0.03);
+	border-left:1px solid rgba(255,255,255,.4);
+	border-right:1px solid rgba(255,255,255,.4);
+	border-top:1px solid rgba(255,255,255,.4);
+	border-bottom:1px solid rgba(255,255,255,.4);
+	text-align:center;
+}
+fieldset
+{
+width:800px;
+background-color:ivory;
+margin:auto;
+padding:41px;
+font-weight:bold;
+}
+h1
+{
+	font-size:50px;
+	text-align:center;
+	color:black;
+	letter-spacing:3px;
+	margin-bottom:5%;
+	opacity:.7;
+}
+h3
+{
+	font-size:30px;
+	text-align:center;
+	color:black;
+	margin-bottom:5%;
+	opacity:.7;
+}
+h4
+{
+color:black;
+font-size:large;
+margin-left:750px;
+}
+h4.warning
+{
+	color:red;
+	font-size:large;
+	margin-left:70px;
+}
+marquee
+{
+margin-left:auto;
+margin-right:300px;
+}
