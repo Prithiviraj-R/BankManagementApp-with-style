@@ -8,6 +8,8 @@
 <meta charset="UTF-8">
 <title>Deposit</title>
 </head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
 <link href="commonstyle.css" type="text/css" rel="stylesheet">
 <link href="label.css" type="text/css" rel="stylesheet">
 <link href="button.css" type="text/css" rel="stylesheet">
@@ -26,6 +28,13 @@ div.div
 {
 float:right;
 }
+.search_select_box button
+{
+margin-left:250px;
+background-color:#080342;
+padding:15px;
+color:#fff;
+}
 </style>
 <script>
 document.getElementById("myAnchor").addEventListener("click", function(event){
@@ -40,7 +49,8 @@ document.getElementById("myAnchor").addEventListener("click", function(event){
 <label for="cusId"><b>CustomerID</b></label>
 <br>
 <br>
-<select name="cars" id="cusId">
+<div class="search_select_box">
+<select class="cusId" name="cars" id="cusId" data-live-search="true">
 <option value="0">select</option>
 <%List<Integer> obj=(List<Integer>) request.getAttribute("AllId"); 
   for(Integer i:obj)
@@ -52,12 +62,14 @@ document.getElementById("myAnchor").addEventListener("click", function(event){
 }
 %>
 </select>
+</div>
 <br>
 <br>
 <label for="AccNo"><b>Account Number</b></label>
 <br>
 <br>
-<select name="AccNo" id="AccNum">
+<div class="select_search_box">
+<select class="accNo" name="AccNo" id="AccNum">
 <option value="0">select</option>
 <%Map<Integer,Map<Long,AccountDetails>> obj1=(Map<Integer,Map<Long,AccountDetails>>) request.getAttribute("AccountMap"); 
   for(Integer i:obj1.keySet())
@@ -74,6 +86,7 @@ document.getElementById("myAnchor").addEventListener("click", function(event){
   }
 %>
 </select>
+</div>
 <br>
 <br>
 <label for="Amount"><b>Amount:</b></label>
@@ -117,6 +130,14 @@ function validSelect()
 			return true;
 			}
 }
+$(document).ready(function()
+{
+	$('search_select_box select').selectpicker();
+});
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
