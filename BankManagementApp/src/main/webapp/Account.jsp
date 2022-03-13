@@ -6,11 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>AccountOptions</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
 <link href="commonstyle.css" type="text/css" rel="stylesheet">
 <link href="label.css" type="text/css" rel="stylesheet">
 <link href="button.css" type="text/css" rel="stylesheet">
 </head>
 <body>
+<jsp:include page="Header.jsp" />
+<br>
+<br>
 <h1><b>Account</b></h1>
 <h4><b><%if(request.getAttribute("text")!=null)
 	{
@@ -24,7 +29,7 @@ response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");%>
 <form class="new" method="post" id="myform">
 <button name="moneyexchange" value="addAccount" type="submit" formaction="CustomerCount?moneyexchange=addAccount">Add Account</button>
 <h3>Account details</h3>
-<table>
+<table class="details">
   <tr>
     <th>Account Id</th>
     <th>Customer Id</th>

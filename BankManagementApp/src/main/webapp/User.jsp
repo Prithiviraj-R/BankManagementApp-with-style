@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>User Options</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
 <link href="commonstyle.css" type="text/css" rel="stylesheet">
 <link href="label.css" type="text/css" rel="stylesheet">
 <link href="button.css" type="text/css" rel="stylesheet">
@@ -14,10 +16,15 @@ div
 {
 float:left;
 }
+body
+{
+margin-bottom:auto;
+}
 </style>
 </head>
 <body>
-<h1 style="color:green">Welcome.</h1>
+<jsp:include page="Header.jsp" />
+<h1>Welcome User</h1>
 <h4><b><%if(request.getAttribute("text")!=null)
 	{
 	     out.println("**"+(String) request.getAttribute("text"));

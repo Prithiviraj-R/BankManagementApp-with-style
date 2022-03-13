@@ -14,13 +14,8 @@
 <link href="label.css" type="text/css" rel="stylesheet">
 <link href="button.css" type="text/css" rel="stylesheet">
 <style>
-h1
-{
-color:green;
-}
 form.new
 {
-border:2px solid black;
 width:1000px;
 padding:41px;
 }
@@ -28,9 +23,13 @@ div.div
 {
 float:right;
 }
+div.search_select_box
+{
+height:60px;
+margin-left:250px;
+}
 .search_select_box button
 {
-margin-left:250px;
 background-color:#080342;
 padding:15px;
 color:#fff;
@@ -42,9 +41,10 @@ document.getElementById("myAnchor").addEventListener("click", function(event){
 	});
 </script>
 <body>
+<jsp:include page="Header.jsp" />
 <h1><b>DEPOSIT/WITHDRAW</b></h1>
 <jsp:include page="sidebar.jsp" />
-<div>
+<div class="new">
 <form onsubmit="return validSelect();" class="new" method="post" name="myform" id="myform">
 <label for="cusId"><b>CustomerID</b></label>
 <br>
@@ -65,11 +65,12 @@ document.getElementById("myAnchor").addEventListener("click", function(event){
 </div>
 <br>
 <br>
+<br>
 <label for="AccNo"><b>Account Number</b></label>
 <br>
 <br>
-<div class="select_search_box">
-<select class="accNo" name="AccNo" id="AccNum">
+<div class="search_select_box">
+<select class="accNo" name="AccNo" id="AccNum" data-live-search="true">
 <option value="0">select</option>
 <%Map<Integer,Map<Long,AccountDetails>> obj1=(Map<Integer,Map<Long,AccountDetails>>) request.getAttribute("AccountMap"); 
   for(Integer i:obj1.keySet())
@@ -87,6 +88,7 @@ document.getElementById("myAnchor").addEventListener("click", function(event){
 %>
 </select>
 </div>
+<br>
 <br>
 <br>
 <label for="Amount"><b>Amount:</b></label>

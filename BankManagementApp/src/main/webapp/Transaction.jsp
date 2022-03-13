@@ -6,6 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
 <link href="commonstyle.css" type="text/css" rel="stylesheet">
 <link href="label.css" type="text/css" rel="stylesheet">
 <link href="button.css" type="text/css" rel="stylesheet">
@@ -18,6 +20,7 @@ float:right;
 </style>
 </head>
 <body>
+<jsp:include page="Header.jsp" />
 <h1>Transaction</h1>
 <jsp:include page="usersidebar.jsp" />
 <div>
@@ -79,6 +82,14 @@ function validAccNo()
 			return true;
 			}
 }
+$(document).ready(function()
+		{
+			$('search_select_box select').selectpicker();
+		});
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

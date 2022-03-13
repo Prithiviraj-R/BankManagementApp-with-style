@@ -54,6 +54,7 @@ public void init(ServletConfig config) throws ServletException
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
+		System.out.println(session);
 		String id =request.getParameter("uname");
 		String password =request.getParameter("psw");
 		session.setAttribute("userId", id);

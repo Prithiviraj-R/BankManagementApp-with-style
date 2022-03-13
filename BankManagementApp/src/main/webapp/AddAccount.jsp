@@ -7,6 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Add Account</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
 <link href="commonstyle.css" type="text/css" rel="stylesheet">
 <link href="label.css" type="text/css" rel="stylesheet">
 <link href="button.css" type="text/css" rel="stylesheet">
@@ -15,6 +17,11 @@ div
 {
 float:right;
 }
+div.search_select_box
+{
+height:40px;
+margin-left:50px;
+}
 </style>
 </head>
 <body>
@@ -22,6 +29,7 @@ float:right;
 if(request.getParameter("moneyexchange").equals("addAccount"))
 {
 %>
+<jsp:include page="Header.jsp" />
 <h1><b>ADD ACCOUNT</b></h1>
 <jsp:include page="sidebar.jsp" />
 <div>
@@ -29,7 +37,8 @@ if(request.getParameter("moneyexchange").equals("addAccount"))
 <input type="hidden" name="action" value="Account">
 <h1>Add Account</h1>
 <label for="CustomerId">Customer Id: </label><br><br>
-<select name="cars" id="cars">
+<div class="search_select_box">
+<select name="cars" id="cars" data-live-search="true">
 <option value="0">select</option>
 <%List<Integer> obj=(List<Integer>) request.getAttribute("AllId"); 
   for(Integer i:obj)
@@ -41,10 +50,13 @@ if(request.getParameter("moneyexchange").equals("addAccount"))
 }
 %>
 </select>
+</div>
+<br>
 <br>
 <br>
 <label for="branch">Branch: </label><br><br>
-<select name="branch" id="branch">
+<div class="search_select_box">
+<select name="branch" id="branch" data-live-search="true">
 <option value="0">select</option>
 <%List<String> obj1=(List<String>) request.getAttribute("Branch"); 
   for(String branch:obj1)
@@ -56,6 +68,8 @@ if(request.getParameter("moneyexchange").equals("addAccount"))
 }
 %>
 </select>
+</div>
+<br>
 <br>
 <br>
 <label for="Balance">Balance: </label><br><br>
@@ -84,7 +98,8 @@ else if(request.getParameter("moneyexchange").equals("update"))
 <br>
 <label for="branch">branch</label>
 <br>
-<select name="branch" id="branch" value="<%=obj.getBranch()%>">
+<div class="search_select_box">
+<select name="branch" id="branch" value="<%=obj.getBranch()%>" data-live-search="true">
 <option value="<%=obj.getBranch()%>"><%=obj.getBranch()%></option>
 <%List<String> obj1=(List<String>) request.getAttribute("Branch"); 
   for(String branch:obj1)
@@ -95,6 +110,7 @@ else if(request.getParameter("moneyexchange").equals("update"))
 }
 %>
 </select>
+</div>
 <br>
 <input type="hidden" name="customer" value="account">
 <button type="submit" formaction="UpdateCustomer" formmethod="post">Update</button>
@@ -174,6 +190,14 @@ function negativeNeglect(id)
 			return true;
 			}
 }
+$(document).ready(function()
+		{
+			$('search_select_box select').selectpicker();
+		});
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

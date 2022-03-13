@@ -17,13 +17,14 @@ float:right;
 </style>
 </head>
 <body>
+<jsp:include page="Header.jsp" />
 <%if(request.getParameter("class").equals("add"))
 {
 %>
 <h1><b>ADD CUSTOMER</b></h1>
 <jsp:include page="sidebar.jsp" />
 <div>
-<form class="operation" style="text-align:center" action="Add" method="post" onsubmit="return negativeNeglect(id)" name="myForm" id="myForm">
+<form class="operation" style="text-align:center" action="Add?action=Customer" method="post" onsubmit="return negativeNeglect(id)" name="myForm" id="myForm">
 <input type="hidden" name="action" value="Customer"> 
 <h1>ADD CUSTOMER</h1>
 <label for="name">Name: </label><br><br>

@@ -58,7 +58,7 @@ form.new
 }
 form.operation
 {
-	margin-left:350px;
+	margin-left:170px;
     width:500px;
     box-shadow:0 8px 32px 0 rgba(31,38,135,.37);
 	border-radius:30px;
@@ -79,11 +79,10 @@ font-weight:bold;
 }
 h1
 {
-	font-size:50px;
+	font-size:40px;
 	text-align:center;
 	color:black;
 	letter-spacing:3px;
-	margin-bottom:5%;
 	opacity:.7;
 }
 h3

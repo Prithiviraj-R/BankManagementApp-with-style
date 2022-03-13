@@ -55,9 +55,13 @@ public class CustomerServlet extends HttpServlet {
 		try
 		{
 			Map<Integer,Customer> customerMap=obj.getactiveCustomer();
+			request.setAttribute("temp", customerMap);
+			if(request.getParameter("class")!=null)
+			{
 			Map<Integer,Customer> inactive=obj.getInactiveCustomer();
-		    request.setAttribute("temp", customerMap);
 		    request.setAttribute("inactive",inactive);
+		    request.setAttribute("class", "inactive");
+			}
 			RequestDispatcher rd=request.getRequestDispatcher("customer.jsp");  
 			rd.forward(request, response);
 		}

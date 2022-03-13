@@ -72,7 +72,7 @@ public class Add extends HttpServlet {
 		cusObj.setAddress(address);
 		cusObj.setPhoneNumber(phoneNumber);
 		System.out.println(cusObj);
-		   obj.addCustomerInfo(cusObj);
+		obj.addCustomerInfo(cusObj);
 	   }
 	   catch(MistakeOccuredException ex)
 	   {

@@ -8,7 +8,7 @@ body
 	align-items:center;
 	background:rgba(95,158,160,0.5);
 }
-form
+form.right
 {
 	width:25rem;
 	height:40rem;
@@ -21,7 +21,37 @@ form
 	border-right:1px solid rgba(255,255,255,.4);
 	border-top:1px solid rgba(255,255,255,.4);
 	border-bottom:1px solid rgba(255,255,255,.4);
-	margin-right:550px;
+	margin-right:2000px;
+}
+div.left
+{
+	float:left;
+	width:25rem;
+	height:40rem;
+    margin-top:10px;
+    margin-right:10px;
+}
+div.right
+{
+	float:right;
+	width:25rem;
+	height:40rem;
+	margin-bottom:80px;
+}
+form.left
+{
+	width:40rem;
+	height:40rem;
+	display:flex;
+	flex-direction:column;
+	border-radius:30px;
+	box-shadow:0 8px 32px 0 rgba(31,38,135,.37);
+	background:rgba(255,255,255,0.03);
+	border-left:1px solid rgba(255,255,255,.4);
+	border-right:1px solid rgba(255,255,255,.4);
+	border-top:1px solid rgba(255,255,255,.4);
+	border-bottom:1px solid rgba(255,255,255,.4);
+	margin-left:150px;
 }
 h1
 {

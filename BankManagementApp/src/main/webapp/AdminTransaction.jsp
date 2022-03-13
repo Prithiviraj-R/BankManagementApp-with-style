@@ -7,6 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Transaction</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
 <link href="commonstyle.css" type="text/css" rel="stylesheet">
 <link href="label.css" type="text/css" rel="stylesheet">
 <link href="button.css" type="text/css" rel="stylesheet">
@@ -15,23 +17,31 @@ body
 {
 background-color:LavenderBlush;
 }
+
 div
 {
 float:right;
 }
 
+div.search_select_box
+ { 
+  height:20px;
+  margin-left:50px; 
+ }
+
 </style>
 </head>
 <body>
+<jsp:include page="Header.jsp" />
 <h1><b>TRANSFER</b></h1>
 <jsp:include page="sidebar.jsp" />
 <%
 response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");%>
 <div>
 <form class="operation" onsubmit="return validAccNo();" id="myForm" name="myForm">
-<h1>Transfer</h1>
 <label for="AccNum">From:</label><br><br>
-<select name="AccNum" id="AccNum" required>
+<div class="search_select_box">
+<select name="AccNum" id="AccNum" required data-live-search="true">
 <option value="0">select</option>
 <%
 if(request.getAttribute("AccountMap")==null)
@@ -56,8 +66,10 @@ else
 }
 %>
 </select>
-<br><br>
+</div>
+<br><br><br>
 <label for="ToAccNum">to:</label><br><br>
+<div class="search_select_box">
 <select name="AccNo" id="AccNo">
 <option value="0">select</option>
 <%
@@ -79,7 +91,8 @@ Map<Integer,Map<Long,AccountDetails>> obj2=(Map<Integer,Map<Long,AccountDetails>
 }
 %>
 </select>
-<br><br>
+</div>
+<br><br><br>
 <input type="hidden" id="Customer" name="Customer" value="admin">
 <label for="Amount">Amount:</label><br><br>
 <input type="number" placeholder="Amount" name="Amount" id="Amount" max="50000" required>
@@ -115,6 +128,14 @@ function validAccNo()
 			return true;
 			}
 }
+$(document).ready(function()
+		{
+			$('search_select_box select').selectpicker();
+		});
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

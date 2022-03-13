@@ -65,15 +65,31 @@ public class Database implements Persistence
 			int id=rs.getInt(1);
 			return id;
 		}
-		catch(Exception e) 
+		catch(SQLException e) 
 		{
 			throw new MistakeOccuredException(e);
 		}
 	}
 	
+	public void userMaintainance(int id)throws MistakeOccuredException
+	{
+		String selectQuery="Select Name,dob from customerInfo where customerID="+id+";";
+		try(Connection con=DriverManager.getConnection(url, uName, pass);
+    			Statement st=con.createStatement();)
+		{
+			 ResultSet rs=st.executeQuery(selectQuery);
+			 rs.next();
+			 String name=rs.getString("Name");
+			 String dob=rs.getString("dob");
+			 st.executeUpdate("Insert into info values("+id+","+name.substring(0,4)+dob.substring(4,dob.length())+","+0+","+id+")");
+		}
+		catch(Exception e) 
+		{
+			throw new MistakeOccuredException(e);
+		}
+	}
 	public long insertTableAcc(String query)throws MistakeOccuredException
 	{
-		int count;
 		try(Connection con=DriverManager.getConnection(url, uName, pass);
     			Statement st=con.createStatement();)
 		{
@@ -96,6 +112,7 @@ public class Database implements Persistence
 		boolean status=cusObj.isStatus();
 		long mobile=cusObj.getPhoneNumber();
 		int add=insertTable("insert into customerInfo(name,dob,address,status,mobileNo) values('"+ name +"','"+dob+"','"+ address +"',"+status+","+mobile+");");
+//		userMaintainance(add);
 		return add;
 	}
 	

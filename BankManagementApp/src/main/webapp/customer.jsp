@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Customer Options</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
 <link href="commonstyle.css" type="text/css" rel="stylesheet">
 <link href="label.css" type="text/css" rel="stylesheet">
 <link href="button.css" type="text/css" rel="stylesheet">
@@ -15,13 +17,14 @@ form.inactive
     margin-top:10px;
     margin-left:30px;
     width:1020px;
+    box-shadow:0 8px 32px 0 rgba(31,38,135,.37);
 	border-radius:30px;
 	background:rgba(255,255,255,0.03);
 	border-left:1px solid rgba(255,255,255,.4);
 	border-right:1px solid rgba(255,255,255,.4);
 	border-top:1px solid rgba(255,255,255,.4);
 	border-bottom:1px solid rgba(255,255,255,.4);
-	text-align:center;
+	text-align:center;	
 }
 label.label
 {
@@ -30,25 +33,25 @@ label.label
 	opacity:.8;
 }
 </style>
-<script>
-	function confirmAction() {
-		let confirmAction = confirm("Are you sure you want to do this action?");
-
-		return confirmAction;
-	}
-</script>
 </head>
 <body>
+<jsp:include page="Header.jsp" />
 <h1><b>Customer</b></h1>
-<h4><b><marquee><%if(request.getAttribute("text")!=null)
+<h4><b><%if(request.getAttribute("text")!=null)
 	{
 	     out.println("**"+(String) request.getAttribute("text"));
 	}
-%></marquee></b></h4>
+%></b></h4>
 <jsp:include page="sidebar.jsp" />
 	<div>
 		<form class="new" method="post">
-		<button name=class value="add" type="submit" formaction="AddCustomer.jsp">Add Customer</button><br><br>
+		<button name="class" value="add" type="submit" formaction="AddCustomer.jsp?class=add">Add Customer</button><br>
+		<button name="class" value="inactive" type="submit" formaction="CustomerServlet">Inactive Customer</button>
+		<br>
+		<input type="hidden" name="class" value="active">
+		<%if((String) request.getAttribute("class")==null) 
+		{
+		%>
 		<label class="label">Active Customer</label>
 		<br>
 		<br>
@@ -83,8 +86,13 @@ label.label
 				</c:forEach>
 			</table>
 			<br><br>
-			</form>
-		<form class="inactive" method="post">
+			<% 
+			}
+			else
+			{
+			%>
+<!-- 			</form> -->
+<!-- 		<form class="inactive" method="post"> -->
 		<label class="label">InActive Customer</label>
 		<br>	
 		<br>
@@ -118,7 +126,18 @@ label.label
 					</tr>
 				</c:forEach>
 			</table>
+			<br>
 		</form>
+		<%
+		}
+		%>
 	</div>
+	<script>
+	function confirmAction() {
+		let confirmAction = confirm("do you want to do this action?");
+
+		return confirmAction;
+	}
+</script>
 </body>
 </html>
